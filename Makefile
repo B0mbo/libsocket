@@ -5,9 +5,9 @@
 CC=clang++
 
 main: lib
-	$(CC) -fPIC -L./ -lsocket -o main main.cpp *.o
+	$(CC) -g -o main main.cpp *.o -L./ -lsocket
 lib:
-	$(CC) -fPIC -c -o libsocket.o LibSocket.cpp
+	$(CC) -g -c -o libsocket.o LibSocket.cpp
 	ar rvs libsocket.a *.o
 clean:
 	rm main *.a *.o

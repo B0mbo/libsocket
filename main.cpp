@@ -8,8 +8,9 @@
 
 int main()
 {
-	uint8_t *pszData;
+	uint8_t *pszData, *pData;
 	uint32_t nLen;
+	int32_t nDataSize;
 	char message[] = "Hello, World!\n";
 	std::string strAddr = "localhost";
 	libsocket::LibSocket *lib = new libsocket::LibSocket(strAddr, 7777);
@@ -18,7 +19,8 @@ int main()
 	pszData = new uint8_t[DATA_SIZE];
 	memset(pszData, 0, DATA_SIZE);
 	memcpy(pszData, message, nLen);
-	lib->SendUDPData(pszData, strlen((char *)pszData));
+
+	lib->SendUDPRequest(pszData, strlen((char *)pszData), pData, nDataSize);
 
 	delete [] pszData;
 	delete lib;

@@ -4,7 +4,7 @@
 
 #include "CLibSocket.h"
 
-extern "C"
+extern "C++" {
 
 namespace libsocket {
 
@@ -24,17 +24,19 @@ public:
     int SendUDPData(const uint8_t * const in_pData, uint32_t in_nDataLen);
 
     //send TCP request and get answer
-    int SendTCPRequest(const uint8_t * const in_pData, uint32_t in_nDataLen, const uint8_t * out_pData, uint32_t out_nDataLen);
+    int SendTCPRequest(const uint8_t * const in_pData, uint32_t in_nDataLen, uint8_t* &out_pData, int32_t& out_nDataLen);
     //send UDP request and get ansger
-    int SendUDPRequest(const uint8_t * const in_pData, uint32_t in_nDataLen, const uint8_t * out_pData, uint32_t out_nDataLen);
+    int SendUDPRequest(const uint8_t * const in_pData, uint32_t in_nDataLen, uint8_t* &out_pData, int32_t& out_nDataLen);
 
     //get UDP data
     int GetUDPData(const uint8_t *in_pData, std::string strAddr);
     
     int SendData(int& sock, int type, const uint8_t * const in_pData, uint32_t in_nDataLen);
-    void GetData(int& sock);
+    int GetData(int& sock, uint8_t* out_pData, int32_t& out_nDataLen);
     void SetAddr(std::string in_strAddr, uint16_t in_nPort);
 
 };
 
 }; //libsocket namespace
+
+}
