@@ -2,13 +2,13 @@
 
 #pragma once
 
-#include "CLibSocket.h"
+#include "ILibSocket.h"
 
 extern "C++" {
 
 namespace libsocket {
 
-class LibSocket : public CLibSocket
+class LibSocket : public ILibSocket
 {
     std::string strAddr;// remote host address
     uint16_t nPort;	// remote port

@@ -8,7 +8,7 @@ extern "C++" {
 
 namespace libsocket {
 
-class CLibSocket {
+class ILibSocket {
 public:
     //send TCP data
     virtual int SendTCPData(const uint8_t * const in_pData, uint32_t in_nDataLen) = 0;
