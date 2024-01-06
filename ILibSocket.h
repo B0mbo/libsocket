@@ -10,6 +10,8 @@ namespace libsocket {
 
 class ILibSocket {
 public:
+    virtual ~ILibSocket() {};
+
     //send TCP data
     virtual int SendTCPData(const uint8_t * const in_pData, uint32_t in_nDataLen) = 0;
     //send UDP data
